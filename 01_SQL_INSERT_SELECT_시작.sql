@@ -69,7 +69,12 @@ SELECT M_NAME AS 멤버이름 ,M_PHONE AS 멤버번호 FROM member;
 SELECT C_NAME AS 카페이름, C_PHONE AS 카페번호 FROM kh_cafe;
 
 
-
+--NENU 실습
+INSERT INTO menu (menu_id, menu_name, menu_desc, menu_price) values(1,'아메리카노','신선한 원두로 만든 아메리카노',3000);
+INSERT INTO menu (menu_id, menu_name, menu_desc, menu_price) values(2,'카페라떼','부드러운 우유가 들어간 라떼',3500);
+INSERT INTO menu (menu_id, menu_name, menu_desc, menu_price) values(3,'카푸치노','진한 커피와 거품이 어우러진 카푸치노',3500);
+INSERT INTO menu (menu_id, menu_name, menu_desc, menu_price) values(4,'카라멜마키아또','달콤한 카라멜 시럽이 들어간 마키아토',4000);
+INSERT INTO menu (menu_id, menu_name, menu_desc, menu_price) values(5,'에스프레소','강한 맛과 향의 에스프레소',2500);
 
 
 
