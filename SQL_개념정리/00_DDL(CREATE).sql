@@ -39,6 +39,8 @@ BLOB : 이미지, 동영상과 같은 파일 저장
 */
 
 
+
+
 /*
 PRIMARY KEY (기본키)
 - 테이블에서 한 행의 정보를 찾기 위해 사용할 컬럼을 의미
@@ -46,6 +48,39 @@ PRIMARY KEY (기본키)
 - 한 테이블 한개만 설정
 - 컬럼 레벨, 한 테이블 레벨 설정 가능
 */
+
+
+
+
+/*
+테스트를 진행하거나 컬럼에 대한 설정을 변경한 후 
+특정한 내용을 확인하길 원한다면 
+테이블을 복제해서 사용할 수 있음 (사본 만들기)
+
+사본 만들기를 진행하는 방법
+1. 모두동일하게 사본만들기
+ CREATE TABLE 새로운테이블명 AS SELECT * FROM 복사할테이블이름;
+
+2. 특정한 컬럼만 선택해서 사본만들기
+CREATE TABLE 새로운테이블명 AS SELECT 컬럼명1,컬럼명2,.. FROM 복사할테이블이름;
+*/
+
+CREATE TABLE EMPLOYEE2 AS SELECT * FROM EMPLOYEE;
+--EMPLOYEE 테이블에 있는 정보를 EMPLOYEE2 테이블에 그대로 복사 붙여넣기
+-- 테이블을 만들때 다른 테이블과 동일하게(컬럼,데이터값) 복사 붙여넣기를 진행할 때는
+-- CREATE TABLE 테이블명
+-- AS 복사하고 싶은 테이블 SELECT
+
+-- 복사한 테이블이 제대로 만들어졌는지 확인하기
+-- SELECT * FROM 새로만든테이블명;
+-- EMPLOYEE2가 EMPLOYEE 제대로 복사했는지
+SELECT * FROM EMPLOYEE2;
+
+
+
+
+
+
 
 
 
