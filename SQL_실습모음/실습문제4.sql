@@ -24,6 +24,9 @@ SELECT EMP_ID, EMP_NAME
 FROM EMPLOYEE
 ORDER BY EMP_NAME;
 
+-- WHERE: 조건에 해당하는 사람들을 검색한 다음 조건에 부합하는 것처럼 보임
+-- GROUP HAVING : 모든 사람들을 조회하고 조건에 맞는 부서만 선별
+
 --[HAVING]
 --1. EMPLOYEE 테이블에서 DEPT_CODE별 평균 급여를 구하고, 평균 급여가 3,000,000보다 큰 부서만 조회
 SELECT DEPT_CODE, AVG(SALARY) AS "평균급여"
@@ -62,9 +65,10 @@ FROM EMPLOYEE
 GROUP BY DEPT_CODE;
 
 --2. EMPLOYEE 테이블에서 JOB_CODE별 평균 급여를 조회
-SELECT JOB_CODE, AVG(SALARY) AS "평균급여"
+SELECT JOB_CODE, FLOOR(AVG(SALARY)) AS "평균급여"
 FROM EMPLOYEE
 GROUP BY JOB_CODE;
+
 
 --3. EMPLOYEE 테이블에서 SAL_LEVEL별 보너스 합계를 조회
 SELECT SAL_LEVEL, SUM(BONUS)
@@ -148,8 +152,12 @@ FROM SAL_GRADE
 WHERE MIN_SAL >= 2000000;
 
 --9. EMPLOYEE 테이블에서 보너스가 NULL이 아닌 직원들을 조회
+SELECT EMP_NAME
+FROM EMPLOYEE
+WHERE BONUS IS NOT NULL;
 
 --10. DEPARTMENT 테이블에서 DEPT_TITLE이 '해외'로 시작하는 부서를 조회
+                                                                                                                                                                                                                                                         .
 
 --11. EMPLOYEE 테이블에서 ENT_YN이 'N'인 직원을 조회
 
