@@ -18,7 +18,6 @@ ORDER BY STUDENT_SSN DESC;
 -- 이름과 학번, 주소를 이름 오름차순으로 조회하시오.
 -- 단, 출력헤더에는 "학생이름", "학번", "거주지 주소"가 출력되도록 한다.
 SELECT STUDENT_NAME AS "학생이름", STUDENT_ID AS "학번", STUDENT_ADDRESS AS "거주지 주소"
-FROM tb_student
 
 
 -- 4번
