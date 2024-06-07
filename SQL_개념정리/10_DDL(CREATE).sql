@@ -412,11 +412,46 @@ INSERT INTO DRINK_COMPANY VALUES (2, '뱁시','서울시 중구','02-8765-4321')
 
 INSERT INTO SOFTS VALUES (1, '콜라',1500,1);
 INSERT INTO SOFTS VALUES (2, '사이다', 1200, 1);
+
 INSERT INTO SOFTS VALUES (3, '벱시콜라', 1000, 2);
 INSERT INTO SOFTS VALUES (4, '마운틴듀오', 1200, 2);
 
 
 
+
+--------------------------------------------------------------------------------
+-- 5. CHECK 제약조건 : 컬럼에 기록되는 값에 조건을 설정할 수 있음
+-- CHECK (컬럼명 비교연산자 비교값)
+-- 비교값은 변하는 값이나 함수 사용 불가
+
+CREATE TABLE USER_CHECK(
+USER_NO NUMBER PRIMARY KEY,
+USER_ID VARCHAR2(20) UNIQUE,
+USER_PW VARCHAR2(30) NOT NULL,
+USER_NAME VARCHAR2(30),
+GENDER VARCHAR2(10) CHECK(GENDER IN('남','여'))
+);
+
+-- 앞으로 GENDER 컬럼에는 남 이나 여 라는 글자만 들어갈수잇음
+INSERT INTO USER_CHECK VALUES (1,'USER01','PW01','홍길동','남');
+INSERT INTO USER_CHECK VALUES (2,'USER02','PW02','박철수','남자');
+/*
+ORA-02290: check constraint (KH_T.SYS_C007151) violated
+제약조건으로 남이나 여만 가능하게 했는데 남자라는 조건이 들어와 에러발생
+*/
+INSERT INTO USER_CHECK VALUES (2,'USER02','PW02','박철수','여');
+INSERT INTO USER_CHECK VALUES (2,'USER03','PW03','강영희','려');
+
+-- CHECK 사용방법
+-- 1번방법 따로 INDEX에 기록하지 않고 조건 설정만 할 경우
+-- 컬럼명 자료형 CHECK(컬럼명 IN('조건1','조건2'))
+
+-- 2번방법 따로 INDEX에 기록한 다음 조건 설정 할 경우 (한줄 작성)
+-- 컬럼명 자료형 CONSTRAINTS 인덱스에기록할이름 CHECK(컬럼명 IN('조건1','조건2'))
+
+-- 2번방법 따로 INDEX에 기록한 다음 조건 설정 할 경우 (여러줄 작성)
+-- 컬럼명 자료형,
+-- CONSTRAINTS 인덱스에기록할이름 CHECK(컬럼명 IN('조건1','조건2'))
 
 
 
